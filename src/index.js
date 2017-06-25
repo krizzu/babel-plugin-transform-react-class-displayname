@@ -4,7 +4,7 @@ module.exports = function myPlugin({ types: t }) {
       t.stringLiteral(name),
       null,
       null,
-      false,
+      false
   );
 
   const visitorClassBody = (path, className) => {
@@ -26,11 +26,21 @@ module.exports = function myPlugin({ types: t }) {
     }
   };
 
+  const classVisitor = {
+    ClassDeclaration(path) {
+      const pathBody = path.get('body');
+      visitorClassBody(pathBody, path.node.id.name);
+    },
+    ClassExpression(path) {
+      const pathBody = path.get('body');
+      visitorClassBody(pathBody, path.node.id.name);
+    },
+  };
+
   return {
     visitor: {
-      Class(path) {
-        const pathBody = path.get('body');
-        visitorClassBody(pathBody, path.node.id.name);
+      Program(path) {
+        path.traverse(classVisitor);
       },
     },
   };
