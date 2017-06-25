@@ -28,19 +28,9 @@ module.exports = function myPlugin({ types: t }) {
 
   return {
     visitor: {
-      ClassDeclaration(path) {
+      Class(path) {
         const pathBody = path.get('body');
         visitorClassBody(pathBody, path.node.id.name);
-      },
-      VariableDeclaration(path) {
-        const declaratorsArray = path.get('declarations');
-
-        declaratorsArray.forEach((dec) => {
-          const expression = dec.get('init');
-          if (t.isClassExpression(expression.node)) {
-            visitorClassBody(expression.get('body'), expression.node.id.name);
-          }
-        });
       },
     },
   };
