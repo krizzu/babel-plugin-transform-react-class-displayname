@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-react-class-displayname",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Babel plugin that adds class' name as static property `displayName`",
   "main": "src/index.js",
   "scripts": {
@@ -12,9 +12,15 @@
   },
   "keywords": [
     "babel-plugin",
-    "displayName",
+    "babel",
+    "plugin",
+    "transform",
+    "displayname",
     "react",
-    "static displayName"
+    "static",
+    "react class",
+    "class",
+    "static displayname"
   ],
   "author": "Krzysztof 'Krizzu' Borowy <krzysztoff.borowy@gmail.com>",
   "license": "MIT",
