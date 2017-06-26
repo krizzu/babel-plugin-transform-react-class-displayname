@@ -10,7 +10,7 @@ Babel plugin that injects class' name as `displayName` property.
 or
 
 ```
-  yarn add babel-plugin-transform-react-class-displayname
+  yarn add --dev babel-plugin-transform-react-class-displayname
 ```
 
 ## Usage:
@@ -26,7 +26,7 @@ via `.babelrc`
 via `cli`
 
 ```
-babel --plugins gtransform-react-class-displayname script.js
+babel --plugins transform-react-class-displayname script.js
 ```
 
 Note:
@@ -40,11 +40,11 @@ In:
 
 ```
   const component = class Class1 {
-    static displayName = "Class1";
+
   };
 
   class Class2 {
-    static displayName = "Class2";
+   
   }
 ```
 
